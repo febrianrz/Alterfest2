@@ -10,10 +10,23 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        AlterFest {
+            keyAlias 'alterfest'
+            keyPassword 'alterfest'
+            storeFile file('/home/febrian/apk_signed/alterfest_21.jks')
+            storePassword 'alterfest'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.AlterFest
         }
     }
 }
